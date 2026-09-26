@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Production Tracker</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           BLACK FONT
+        ========================= */
+
+        body {
+            color: #000000;
+        }
+
+        .page-title,
+        .page-subtitle,
+        .stat-label,
+        .stat-value,
+        .card-title,
+        .sidebar-title,
+        .sidebar-link,
+        .user-name,
+        .main-content,
+        table,
+        th,
+        td {
+            color: #000000;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            color: #000000;
+        }
+
+        .sidebar-icon {
+            width: 28px;
+            min-width: 28px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 4px;
+
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .sidebar-link i {
+            color: #000000;
+        }
+
+        .sidebar-link.active i {
+            color: #000000;
+        }
+
+
+        /* =========================
+           DASHBOARD TABLE
+        ========================= */
+
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .dashboard-table th,
+        .dashboard-table td {
+            color: #000000;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .dashboard-table th {
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           MOBILE TABLE
+        ========================= */
+
+        .dashboard-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .dashboard-table {
+            min-width: 550px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="top-header">
+
+    <div class="logo">
+        PARTH OVERSEAS
+    </div>
+
+    <div class="header-right">
+
+        <span class="user-name">
+            Supervisor
+        </span>
+
+        <button class="menu-btn"
+                type="button"
+                onclick="toggleSidebar()"
+                aria-label="Toggle navigation menu"
+                aria-controls="sidebar">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     APP LAYOUT
+========================= -->
+
+<div class="app-layout">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-title">
+            Main Menu
+        </div>
+
+
+        <!-- DASHBOARD -->
+
+        <a href="index.html"
+           class="sidebar-link active"
+           aria-current="page">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-chart-column"></i>
+            </span>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <!-- PRODUCTION ENTRY -->
+
+        <a href="pages/production-entry.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-file-pen"></i>
+            </span>
+
+            <span>Production Entry</span>
+
+        </a>
+
+
+        <!-- ORDERS -->
+
+        <a href="pages/orders.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-box"></i>
+            </span>
+
+            <span>Orders</span>
+
+        </a>
+
+
+        <!-- WIP TRACKING -->
+
+        <a href="pages/wip-tracking.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </span>
+
+            <span>WIP Tracking</span>
+
+        </a>
+
+
+        <!-- REPORTS -->
+
+        <a href="pages/reports.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-chart-simple"></i>
+            </span>
+
+            <span>Reports</span>
+
+        </a>
+
+
+        <!-- LOCATIONS -->
+
+        <a href="pages/locations.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </span>
+
+            <span>Locations</span>
+
+        </a>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="main-content">
+
+
+        <h1 class="page-title">
+            Production Dashboard
+        </h1>
+
+
+        <p class="page-subtitle">
+            Real-time overview of production and inventory movement
+        </p>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================= -->
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Active Orders
+                </div>
+
+                <div class="stat-value">
+                    12
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Total WIP
+                </div>
+
+                <div class="stat-value">
+                    850
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's Output
+                </div>
+
+                <div class="stat-value">
+                    420
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Total Loss
+                </div>
+
+                <div class="stat-value">
+                    18
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             PRODUCTION OVERVIEW
+        ========================= -->
+
+        <div class="card">
+
+            <div class="card-title">
+                Production Stage Overview
+            </div>
+
+
+            <div class="dashboard-table-wrapper">
+
+                <table class="dashboard-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Stage
+                            </th>
+
+                            <th>
+                                IN
+                            </th>
+
+                            <th>
+                                OUT
+                            </th>
+
+                            <th>
+                                WIP
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                Cutting
+                            </td>
+
+                            <td>
+                                500
+                            </td>
+
+                            <td>
+                                450
+                            </td>
+
+                            <td>
+                                50
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Stitching
+                            </td>
+
+                            <td>
+                                450
+                            </td>
+
+                            <td>
+                                380
+                            </td>
+
+                            <td>
+                                70
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Finishing
+                            </td>
+
+                            <td>
+                                380
+                            </td>
+
+                            <td>
+                                350
+                            </td>
+
+                            <td>
+                                30
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="js/app.js"></script>
+
+
+</body>
+
+</html>
